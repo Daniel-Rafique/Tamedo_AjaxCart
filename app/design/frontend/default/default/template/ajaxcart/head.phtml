@@ -1,0 +1,135 @@
+<style>
+    <?php echo Mage::getStoreConfig('ajaxcart/general/custom_css');?>
+</style>
+<?php
+$loaderSrc = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'ajaxcart/' . Mage::getStoreConfig('ajaxcart/general/loader_image');
+$imageSize = getimagesize($loaderSrc);
+if (!is_array($imageSize)) {
+    $loaderSrc = $this->getJsUrl('ajaxcart/ajax-loader.gif');
+}
+?>
+<div id="loading-mask">
+    <div class="background-overlay"></div>
+    <p id="loading_mask_loader" class="loader">
+        <img alt="Loading.." src='<?php echo $loaderSrc; ?>'/>
+    </p>
+</div>
+
+<script type="text/javascript">
+    jQuery.noConflict();
+    function setAjaxData(data, iframe, type) {
+        if (data.status == 'ERROR') {
+            alert(data.message);
+        } else {
+            if (jQuery('.block-cart')) {
+                jQuery('.block-cart').replaceWith(data.sidebar);
+            }
+            if (jQuery('.header .links')) {
+                jQuery('.header .links').replaceWith(data.toplink);
+            }
+
+            jQuery.fancybox.close();
+            if (type != 'item') {
+                jQuery('#success-message-container .text').text(data.message);
+                jQuery('#after-loading-success-message').show();
+            }
+
+            <?php if(!Mage::getStoreConfig('ajaxcart/general/popup')){ ?>
+            var timer;
+            jQuery('.quick-access .topcart').slideDown('slow', function () {
+                timer = setTimeout(function () {
+                    jQuery('.quick-access .topcart').slideUp("slow");
+                }, 5000);
+            });
+            <?php } ?>
+
+        }
+    }
+    function setLocationAjax(url, id, type) {
+        url += 'isAjax/1';
+        url = url.replace("checkout/cart", "ajaxcart/index");
+        jQuery('#loading-mask').show();
+
+        try {
+            jQuery.ajax({
+                url: url,
+                dataType: 'json',
+                success: function (data) {
+                    jQuery('#loading-mask').hide();
+                    setAjaxData(data, false, type);
+                }
+            });
+        } catch (e) {
+        }
+    }
+
+    function ajaxCompare(url, id) {
+        url = url.replace("catalog/product_compare/add", "ajaxcart/whishlist/compare");
+        url += 'isAjax/1/';
+        jQuery('#loading-mask').show();
+
+        jQuery.ajax({
+            url: url,
+            dataType: 'json',
+            success: function (data) {
+                jQuery('#loading-mask').hide();
+                if (data.status == 'ERROR') {
+                    alert(data.message);
+                } else {
+                    alert(data.message);
+                    if (jQuery('.block-compare').length) {
+                        jQuery('.block-compare').replaceWith(data.sidebar);
+                    } else {
+                        if (jQuery('.col-right').length) {
+                            jQuery('.col-right').prepend(data.sidebar);
+                        }
+                    }
+                }
+            }
+        });
+    }
+    function ajaxWishlist(url, id) {
+        url = url.replace("wishlist/index", "ajaxcart/whishlist");
+        url += 'isAjax/1/';
+        jQuery('#loading-mask').show();
+        jQuery.ajax({
+            url: url,
+            dataType: 'json',
+            success: function (data) {
+                jQuery('#loading-mask').hide();
+                if (data.status == 'ERROR') {
+                    alert(data.message);
+                } else {
+                    alert(data.message);
+                    if (jQuery('.block-wishlist').length) {
+                        jQuery('.block-wishlist').replaceWith(data.sidebar);
+                    } else {
+                        if (jQuery('.col-right').length) {
+                            jQuery('.col-right').prepend(data.sidebar);
+                        }
+                    }
+                }
+            }
+        });
+    }
+    function deleteAction(deleteUrl, itemId, msg) {
+        var result = confirm(msg);
+        if (result == true) {
+            setLocationAjax(deleteUrl, itemId, 'item')
+        } else {
+            return false;
+        }
+    }
+</script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery(".top-link-cart").attr('href', 'javascript:void(0)');
+
+        jQuery(".top-link-cart").hover(function () {
+            jQuery('.quick-access .topcart').slideToggle("slow");
+        });
+    });
+
+</script>

@@ -1,0 +1,30 @@
+#loading-mask {
+    display: none;
+    color: rgb(216, 89, 9);
+    font-size: 1.1em;
+    font-weight: bold;
+    opacity: 0.8;
+    position: fixed;
+    text-align: center;
+    z-index: 500;
+    top: 50%;
+    left: 50%;
+}
+
+#loading_mask_loader {
+    border: 2px solid #CCCCCC;
+    font-weight: bold;
+    left: 50%;
+    margin-left: -120px;
+    padding: 15px 60px;
+    position: fixed;
+    text-align: center;
+    top: 45%;
+    width: 120px;
+    z-index: 1000;
+    background: #f5f5f5 none repeat scroll 0 0;
+}
+
+
+
+

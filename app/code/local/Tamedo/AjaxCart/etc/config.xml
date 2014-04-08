@@ -7,41 +7,41 @@
  */
  -->
 <config>
-    <modules>
-        <Tamedo_AjaxCart>
-           <version>0.1.0</version>
-        </Tamedo_AjaxCart>
-    </modules>
-    <frontend>
-        <routers>
-            <ajaxcart>
-                <use>standard</use>
-                <args>
-                    <module>Tamedo_AjaxCart</module>
-                    <frontName>ajaxcart</frontName>
-                </args>
-            </ajaxcart>
-        </routers>
-        <layout>
-            <updates>
-                <ajaxcart module="Tamedo_AjaxCart">
-                    <file>ajaxcart.xml</file>
-                </ajaxcart>
-            </updates>
-        </layout>
+	<modules>
+		<Tamedo_AjaxCart>
+			<version>0.1.0</version>
+		</Tamedo_AjaxCart>
+	</modules>
+	<frontend>
+		<routers>
+			<ajaxcart>
+				<use>standard</use>
+				<args>
+					<module>Tamedo_AjaxCart</module>
+					<frontName>ajaxcart</frontName>
+				</args>
+			</ajaxcart>
+		</routers>
+		<layout>
+			<updates>
+				<ajaxcart module="Tamedo_AjaxCart">
+					<file>ajaxcart.xml</file>
+				</ajaxcart>
+			</updates>
+		</layout>
 		<events>
-           <core_block_abstract_prepare_layout_before>
-               <observers>
-                   <tamedo_ajaxcart_prepare_layout_before>
-                       <class>ajaxcart/observer</class>
-                       <method>prepareLayoutBefore</method>
-                   </tamedo_ajaxcart_prepare_layout_before>
-               </observers>
-           </core_block_abstract_prepare_layout_before>
+			<core_block_abstract_prepare_layout_before>
+				<observers>
+					<tamedo_ajaxcart_prepare_layout_before>
+						<class>ajaxcart/observer</class>
+						<method>prepareLayoutBefore</method>
+					</tamedo_ajaxcart_prepare_layout_before>
+				</observers>
+			</core_block_abstract_prepare_layout_before>
 		</events>
-    </frontend>
-    <admin>
-        <routers>
+	</frontend>
+	<admin>
+		<routers>
 			<ajaxcart>
 				<use>admin</use>
 				<args>
@@ -49,9 +49,9 @@
 					<frontName>ajaxcart</frontName>
 				</args>
 			</ajaxcart>
-        </routers>
-    </admin>
-    <adminhtml>
+		</routers>
+	</admin>
+	<adminhtml>
 		<acl>
 			<resources>
 				<all>
@@ -60,16 +60,16 @@
 				<admin>
 					<children>
 						<system>
-								<children>
-									<config>
-										<children>
-											<ajaxcart translate="title" module="ajaxcart">
-												<title>Tamedo Ajax Cart Section</title>
-											</ajaxcart>
-										</children>
-									</config>
-								</children>
-							</system>
+							<children>
+								<config>
+									<children>
+										<ajaxcart translate="title" module="ajaxcart">
+											<title>Tamedo Ajax Cart Section</title>
+										</ajaxcart>
+									</children>
+								</config>
+							</children>
+						</system>
 					</children>
 				</admin>
 			</resources>
@@ -81,7 +81,7 @@
 				</ajaxcart>
 			</updates>
 		</layout>
-    </adminhtml>
+	</adminhtml>
 	<default>
 		<ajaxcart>
 			<general>
@@ -98,62 +98,62 @@
 				<enableproduct>1</enableproduct>
 			</addtolinks>
 		</ajaxcart>
-	 </default>	
-    <global>
-        <models>
-            <ajaxcart>
-                <class>Tamedo_AjaxCart_Model</class>
-                <resourceModel>ajaxcart_mysql4</resourceModel>
-            </ajaxcart>
-            <ajaxcart_mysql4>
-                <class>Tamedo_AjaxCart_Model_Mysql4</class>
-                <entities>
-                    <ajaxcart>
-                        <table>ajaxcart</table>
-                    </ajaxcart>
-                </entities>
-            </ajaxcart_mysql4>
-        </models>
-        <resources>
-            <ajaxcart_setup>
-                <setup>
-                    <module>Tamedo_AjaxCart</module>
-                </setup>
-                <connection>
-                    <use>core_setup</use>
-                </connection>
-            </ajaxcart_setup>
-            <ajaxcart_write>
-                <connection>
-                    <use>core_write</use>
-                </connection>
-            </ajaxcart_write>
-            <ajaxcart_read>
-                <connection>
-                    <use>core_read</use>
-                </connection>
-            </ajaxcart_read>
-        </resources>
-        <blocks>
-            <ajaxcart>
-                <class>Tamedo_AjaxCart_Block</class>
-            </ajaxcart>
-        </blocks>
-        <helpers>
-            <ajaxcart>
-                <class>Tamedo_AjaxCart_Helper</class>
-            </ajaxcart>
-        </helpers>
+	</default>
+	<global>
+		<models>
+			<ajaxcart>
+				<class>Tamedo_AjaxCart_Model</class>
+				<resourceModel>ajaxcart_mysql4</resourceModel>
+			</ajaxcart>
+			<ajaxcart_mysql4>
+				<class>Tamedo_AjaxCart_Model_Mysql4</class>
+				<entities>
+					<ajaxcart>
+						<table>ajaxcart</table>
+					</ajaxcart>
+				</entities>
+			</ajaxcart_mysql4>
+		</models>
+		<resources>
+			<ajaxcart_setup>
+				<setup>
+					<module>Tamedo_AjaxCart</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</ajaxcart_setup>
+			<ajaxcart_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</ajaxcart_write>
+			<ajaxcart_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</ajaxcart_read>
+		</resources>
+		<blocks>
+			<ajaxcart>
+				<class>Tamedo_AjaxCart_Block</class>
+			</ajaxcart>
+		</blocks>
+		<helpers>
+			<ajaxcart>
+				<class>Tamedo_AjaxCart_Helper</class>
+			</ajaxcart>
+		</helpers>
 		<events>
 			<controller_action_postdispatch>
 				<observers>
 					<tamedo_ajaxcart_catalogajax>
 						<type>singleton</type>
 						<class>ajaxcart/observer</class>
-						<method>postdispatch</method>						
+						<method>postdispatch</method>
 					</tamedo_ajaxcart_catalogajax>
 				</observers>
 			</controller_action_postdispatch>
 		</events>
-    </global>
+	</global>
 </config>

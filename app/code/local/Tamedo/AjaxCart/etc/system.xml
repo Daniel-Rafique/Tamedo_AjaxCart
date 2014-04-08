@@ -7,22 +7,22 @@
  */
  -->
 <config>
-    <tabs>
+	<tabs>
 		<tamedo translate="label" module="ajaxcart">
 			<label>Tamedo</label>
 			<sort_order>210</sort_order>
 		</tamedo>
-    </tabs>
+	</tabs>
 	<sections>
-       <ajaxcart>
+		<ajaxcart>
 			<label>Tamedo Ajax Cart</label>
-            <tab>tamedo</tab>
-            <class>tamedo-ajaxcart</class>
-            <frontend_type>text</frontend_type>
-            <sort_order>150</sort_order>
-            <show_in_default>1</show_in_default>
-            <show_in_website>1</show_in_website>
-            <show_in_store>1</show_in_store>
+			<tab>tamedo</tab>
+			<class>tamedo-ajaxcart</class>
+			<frontend_type>text</frontend_type>
+			<sort_order>150</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
 			<groups>
 				<general translate="label">
 					<label>General</label>
@@ -42,18 +42,18 @@
 							<show_in_store>1</show_in_store>
 						</jquery>
 						<loader_image translate="label comment">
-                            <label>Loader Image</label>
-                            <comment>Allowed file types: PNG, GIF, JPG, JPEG.</comment>
-                            <frontend_type>image</frontend_type>
-                            <backend_model>ajaxcart/system_config_backend_image_loader</backend_model>
-                            <base_url type="media" scope_info="1">ajaxcart</base_url>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                  </loader_image>
-					</fields>					
-				</general>	
+							<label>Loader Image</label>
+							<comment>Allowed file types: PNG, GIF, JPG, JPEG.</comment>
+							<frontend_type>image</frontend_type>
+							<backend_model>ajaxcart/system_config_backend_image_loader</backend_model>
+							<base_url type="media" scope_info="1">ajaxcart</base_url>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</loader_image>
+					</fields>
+				</general>
 				<addtocart translate="label">
 					<label>Add To Cart</label>
 					<frontend_type>text</frontend_type>
@@ -89,7 +89,7 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</deletefromsidebarcart>
-					</fields>					
+					</fields>
 				</addtocart>
 				<addtolinks translate="label">
 					<label>Add To Links</label>
@@ -117,9 +117,9 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</enableproduct>
-					</fields>					
+					</fields>
 				</addtolinks>
 			</groups>
-		</ajaxcart>	
-    </sections>
+		</ajaxcart>
+	</sections>
 </config>

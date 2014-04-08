@@ -47,3 +47,17 @@
  .quick-access .links {position:relative;}
  .topcart {position:absolute; top:20px; width:250px; }
 </style>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery(".top-link-cart").attr('href', 'javascript:void(0)');
+
+        jQuery(".top-link-cart").mouseover(function () {
+            jQuery('.quick-access .topcart').slideDown("slow");
+        });
+
+        jQuery(".top-link-cart").mouseleave(function () {
+            jQuery('.quick-access .topcart').slideUp("slow");
+        });
+    });
+
+</script>

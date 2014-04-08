@@ -28,20 +28,12 @@ if (!is_array($imageSize)) {
                 jQuery('.header .links').replaceWith(data.toplink);
             }
 
-            jQuery.fancybox.close();
-            if (type != 'item') {
-                jQuery('#success-message-container .text').text(data.message);
-                jQuery('#after-loading-success-message').show();
-            }
-
-            <?php if(!Mage::getStoreConfig('ajaxcart/general/popup')){ ?>
             var timer;
             jQuery('.quick-access .topcart').slideDown('slow', function () {
                 timer = setTimeout(function () {
                     jQuery('.quick-access .topcart').slideUp("slow");
                 }, 5000);
             });
-            <?php } ?>
 
         }
     }
@@ -123,13 +115,3 @@ if (!is_array($imageSize)) {
 </script>
 
 
-<script type="text/javascript">
-    jQuery(document).ready(function () {
-        jQuery(".top-link-cart").attr('href', 'javascript:void(0)');
-
-        jQuery(".top-link-cart").hover(function () {
-            jQuery('.quick-access .topcart').slideToggle("slow");
-        });
-    });
-
-</script>
